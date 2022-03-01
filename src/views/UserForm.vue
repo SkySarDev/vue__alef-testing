@@ -1,53 +1,52 @@
 <template>
-  <form>
+  <form @submit.prevent="save">
     <h2>Персональные данные</h2>
     <main-input
-      v-model.trim="formData.user.name"
+      v-model.trim="userData.name"
       label="Имя"
     />
     <main-input
-      v-model="formData.user.age"
+      v-model="userData.age"
       type="number"
       label="Возраст"
     />
 
     <h2>Дети (макс. 5)</h2>
     <button
-      v-if="formData.children.length < 5"
+      v-if="userData.children.length < 5"
       @click="addChildren"
     >
       Добавить ребенка
     </button>
 
     <template
-      v-for="(child, index) in formData.children"
-      :key="index"
+      v-for="child in userData.children"
+      :key="child.id"
     >
       <main-input
-        v-model.trim="child.childName"
+        v-model.trim="child.name"
         label="Имя"
       />
       <main-input
-        v-model="child.childAge"
+        v-model="child.age"
         type="number"
         label="Возраст"
       />
       <button
-        @click="deleteChildren(index)"
+        @click="deleteChildren(child.id)"
         type="button"
       >
         Удалить
       </button>
     </template>
 
-    <button type="submit">
-      Сохранить
-    </button>
+    <button type="submit">Сохранить</button>
   </form>
 </template>
 
 <script>
 import MainInput from "@/components/UI/MainInput";
+import store from "@/store";
 
 export default {
   name: "UserForm",
@@ -56,23 +55,23 @@ export default {
   },
   data() {
     return {
-      formData: {
-        user: {
-          name: "",
-          age: ""
-        },
-        children: []
-      },
+      userData: store.state.userData,
     };
+  },
+  mounted() {
+    store.init()
   },
   methods: {
     addChildren() {
-      this.formData.children.push({ childName: '', childAge: '' })
+      store.addChildren();
     },
-    deleteChildren(index) {
-      this.formData.children.splice(index, 1)
-    }
-  }
+    deleteChildren(id) {
+      store.deleteChildren(id);
+    },
+    save() {
+      store.save();
+    },
+  },
 };
 </script>
 
