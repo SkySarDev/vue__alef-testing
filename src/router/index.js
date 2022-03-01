@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import UserForm from "@/views/UserForm";
-import UserPreview from "@/views/UserPreview";
+import UserForm from "@/views/UserFormPage";
+import UserPreview from "@/views/UserPreviewPage";
 
 const routes = [
   {
