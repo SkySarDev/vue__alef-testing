@@ -1,14 +1,18 @@
 import { createRouter, createWebHistory } from "vue-router";
+import UserForm from "@/views/UserForm";
+import UserPreview from "@/views/UserPreview";
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: "",
+    alias: "/user-form",
+    name: "user-form",
+    component: UserForm,
   },
   {
-    path: "/about",
-    name: "about",
+    path: "/user-preview",
+    name: "user-preview",
+    component: UserPreview,
   },
 ];
 
