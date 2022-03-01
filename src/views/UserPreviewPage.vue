@@ -41,6 +41,9 @@ export default {
       userData: store.state.userData,
       yearsDeclension
     }
+  },
+  mounted() {
+    store.init()
   }
 };
 </script>

@@ -31,6 +31,9 @@ export default {
       store.save();
     },
   },
+  mounted() {
+    store.init()
+  }
 };
 </script>
 

@@ -5,15 +5,11 @@
 </template>
 
 <script>
-import store from "@/store";
 import MainLayout from "@/components/Layout/MainLayout";
 
 export default {
   components: {
     MainLayout
-  },
-  mounted() {
-    store.init()
   }
 }
 </script>
