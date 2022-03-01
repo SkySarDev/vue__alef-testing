@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import HeaderLayout from "@/components/HeaderLayout";
+import HeaderLayout from "@/components/Layout/HeaderLayout";
 import FooterLayout from "@/components/Layout/FooterLayout";
 
 export default {

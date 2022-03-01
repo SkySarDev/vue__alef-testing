@@ -5,11 +5,15 @@
 </template>
 
 <script>
+import store from "@/store";
 import MainLayout from "@/components/Layout/MainLayout";
 
 export default {
   components: {
     MainLayout
+  },
+  mounted() {
+    store.init()
   }
 }
 </script>
@@ -35,10 +39,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  color: rgba(17, 17, 17, 0.48);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: rgba(17, 17, 17, 0.8);
+}
+
 .container {
   margin: 0 auto;
   padding: 0 15px;
-  width: 1200px;
+  max-width: 1200px;
+  min-width: 650px;
 }
 
 .block-title {

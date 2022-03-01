@@ -26,9 +26,6 @@ export default {
     UserForm,
     ChildrenForm
   },
-  mounted() {
-    store.init()
-  },
   methods: {
     save() {
       store.save();
