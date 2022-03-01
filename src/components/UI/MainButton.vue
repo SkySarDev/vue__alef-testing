@@ -2,6 +2,7 @@
   <button
     class="button"
     :class="variant || 'contained'"
+    :type="type || 'button'"
   >
     {{ text }}
   </button>
@@ -19,6 +20,10 @@ export default {
       type: String,
       required: true,
     },
+    type: {
+      type: String,
+      required: false
+    }
   }
 };
 </script>
