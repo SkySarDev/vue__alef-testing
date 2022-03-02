@@ -1,8 +1,8 @@
 <template>
   <button
     class="button"
-    :class="variant || 'contained'"
-    :type="type || 'button'"
+    :class="variant"
+    :type="type"
   >
     {{ text }}
   </button>
@@ -14,7 +14,8 @@ export default {
   props: {
     variant: {
       type: String,
-      required: false
+      required: false,
+      default: 'contained'
     },
     text: {
       type: String,
@@ -22,7 +23,8 @@ export default {
     },
     type: {
       type: String,
-      required: false
+      required: false,
+      default: 'button'
     }
   }
 };

@@ -10,13 +10,15 @@ const store = {
   }),
 
   addChildren() {
-    const id = Date.now();
+    if (this.state.userData.children.length < 5) {
+      const id = Date.now();
 
-    this.state.userData.children.push({
-      id,
-      name: '',
-      age: ''
-    });
+      this.state.userData.children.push({
+        id,
+        name: '',
+        age: ''
+      });
+    }
   },
 
   deleteChildren(id) {
